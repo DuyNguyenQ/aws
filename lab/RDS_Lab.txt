@@ -1,0 +1,27 @@
+# Lab1 - RDS Basic Operation
+1. Login to AWS console, navigate to RDS
+2. Tạo RDS instance với cấu hình cơ bản db.t3.medium, engine MySQL
+3. Kết nối tới instance sử dụng MySQL Workbench
+4. Thực hiện 1 số câu lệnh CRUD cơ bản
+5. Tạo thêm instance với role Read Replica
+6. Kết nối tới Read instance sử dụng MySQL Workbench
+7. Thực hiện 1 số câu lệnh CRUD cơ bản => Read only
+
+
+# Lab2 - RDS Cluster
+1. Login to AWS console, navigate to RDS
+2. Tạo 1 RDS Cluster với option 2 instance
+3. Kết nối với Cluster thông qua Cluster Endpoint
+4. Thực hiện 1 số câu lệnh CRUD cơ bản
+5. Thửu stop/terminate master instance, test khả năng tự động failover
+
+
+# Lab3 - Aurora
+1. Tạo Aurora Cluster với 2 instance (1 write, 1 read-replicate).
+2. Kết nối đến Cluster sử dụng Write endpoint.
+3. Thực hiện 1 số thao tác đơn giản (CRUD).
+4. Enable tính năng back tracking
+5. Đợi khoảng 5p
+6. Xoá tòn bộ db
+7. Thực hiện back tracking về 5p trước đó
+8. Kiểm tra data đã được phục hồi lại trạng thái trước khi bị Xoá

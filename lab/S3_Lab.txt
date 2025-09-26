@@ -1,0 +1,65 @@
+# Lab1
+1. Login to AWS console, navigate to S3
+2. Tạo 1 bucket (Lưu ý tên s3 bucket là global unique)
+3. Thực hiện tạo folder
+4. Thực hiện upload file/folder
+5. Thực hiện move file
+6. Download file
+7. Chỉnh sửa obj metadata để trình duyệt quyết định hành động 
+default với file khi open (view trực tiếp hoặc popup download)
+8. Thực hiện xoá file
+
+
+# Lab2
+1. Tạo 1 user có quyền S3 full access
+2. Login bằng user vừa tạo ở 1 và thử thực hiện một số thao tác trên S3
+3. Thay đổi S3 policy, explicit deny user ở 1 không cho access
+4. Thử access lại bằng user vừa tạo ở 1
+    => Kết luận S3 bucket policy sẽ combine với IAM policy khi đánh giá
+    quyền của user tuy nhiên deny được ưu tiên hơn allow nên mặc dù user
+    có quyền S3Full vẫn không thể truy cập nếu setting của một S3 bucket là deny
+5. Clear resource: xoá user tạo ở 1
+
+
+# Lab3
+1. Yêu cầu đã cài sẵn AWS CLI và thiết lập profile tại máy local
+2. Upload 1 file bất kỳ lên S3
+3. Tham khảo câu lệnh sau để phát hành 1 presign url cho obj trên S3
+https://docs.aws.amazon.com/cli/latest/reference/s3/presign.html
+4. Sử dụng URL để download file trên trình duyệt.
+5. Đợi hết thời gian hiệu lực của url, thử lại => expired.
+
+
+# Lab4
+1. Bật versioning cho 1 bucket
+2. Thực hiện upload 1 file 
+3. Thay đổi nội dung file, upload đè lên file trước đó
+4. Confirm version mới được sinh ra.
+5. Download version cũ hơn, check nội dung
+6. Xoá toàn bộ version của 1 file (xoá hoàn toàn)
+
+
+# Lab5
+1. Upload 1 file và chọn storage class là Standard IA
+2. Upload 1 file và chọn storage class là OneZone IA
+3. Upload 1 file và chọn storage class là Glacier Instant Retrieval
+4. Upload 1 file và chọn storage class là Glacier Flexible Retrival
+5. Access 1 file được lưu trữ dưới class Glacier
+6. Xoá các file đã upload
+
+
+# Lab6 
+1. Chuẩn bị 1 bộ source HTML tĩnh.
+2. Upload source lên S3 (lưu ý file index.html phải ở level gốc)
+3. Bật S3 static web hosting
+4. Cấu hình open public access cho bucket
+5. Cấu hình bucket policy cho phép mọi người access
+6. Test truy cập từ trình duyệt.
+
+
+# Lab7
+1. Tạo Lambda function đơn giản với chức năng in ra event nhân được
+từ S3 bao gồm tên bucket, obj key 
+2. Thiết lập S3 trigger sang lambda khi có ai đó upload file
+3. Test upload 1 file bất kỳ
+4. Check xem lambda có được kích hoạt và chạy thành công không.
