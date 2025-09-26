@@ -1,0 +1,28 @@
+# Lab1
+1. Tạo 1 Group "developer-group" có quyền Power User Access.
+2. Create 1 user "developer-01" add 1 user vào "developer-group".
+3. Login vào console, thử thực hiện 1 vài thao tác như Launch instance, create S3 bucket.
+4. Tạo thêm group "tester-group" có quyền "Readonly Access".
+5. Tạo user "tester-01" add user vào "tester-group".
+6. Login vào console, thử thực hiện một vài thao tác Stop Instance, Create S3 bucket.
+7. Thêm policy "deny-delete-object-s3" vào group "tester-group".
+8. Add user "developer-01" vào "tester-group".
+9. Thử dùng "developer-01" xoá object trên s3 => expect deny.
+
+
+# Lab2
+1. Phát hành access key and secret key cho user đã tạo ở Lab1.
+2. Thiết lập access key and secret key cho AWS CLI
+3. Tương tác với 1 vài service bằng CLI
+4. Tạo policy enforce-mfa-policy và gắn vào "developer-group"
+5. Thử gõ lại CLI xem còn xài được không
+6. Cài MFA cho user "developer-01"
+7. Thiết lập session_token sử dụng MFA code
+8. Gõ lệnh CLI sử dụng profile đã có MFA
+
+
+# Lab3
+1. Tạo 1 Role cho phép access full tới một s3 bocket chỉ định.
+2. Tạp 1 EC2, gán role vừa tạo.
+3. Login vào EC2.
+4. Thực hiện các action pload, download, delete file dùng CLI

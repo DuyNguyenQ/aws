@@ -1,0 +1,21 @@
+Lab-1 DynamoDB basic information
+1. Tạo table có tên student với các thông tin
+- id: string - partition key
+- name: string - sort key
+2. Input một vài record với các thông tin
+id, name, birthday, hobbies, skill, is_married
+- st-01, Linh, 1992/05/06, ["piano", "travel"], , false
+- st-02, Truc, 1999/12/03, , ["ielts", "dance"], true
+- st-03, Phuong, 2000/08/02, ["gym", "yoga"], ["guitar"], true
+3. Thực hiện query student có id: st-01, name: "Linh"
+4. Thực hiện scan student có name: "Phuong"
+5. Thực hiện scan student có is_married: false
+
+Lab2 - Indexing
+Sử dụng table của Lab1, thực hiện tạo Global Secondary Indexing như sau
+- Partition key: name
+- Sortkey: birthday
+Thực hiện query data sử dụng indexing
+- Query tất cả học sinh có name = Linh, birthday = 1992/05/06
+- Scan tất cả học sinh có name = Linh, birthday = 1992/05/06
+- So sánh tốc độ, consume RCU khi scan và query

@@ -1,0 +1,23 @@
+# Lab1 - Thiết kế VPC đơn giản
+Yêu cầu thiết kế VPC như sau
+- VPC CIDR 10.0.0.0/16
+- Có 2 loại subnet Public, Private. Mỗi subnet chưa ít nhất 1024 IPs
+- Mỗi loại subnets nằm ở ít nhất 2AZ.
+- Có 1 Internet Gateway, cấu hình route table tới Internet Gateway
+- Có 1 NAT Gateway, cấu hình route table tới NAT Gateway.
+- Thiết kế security group cho 3 đối tượng:
+    + Application Load Balancer: expose port HTTPS 443
+    + App Server cho phép port 80 từ ALB, 22 từ Bastion Server
+    + DB Server sử dụng MySQL sd port 3306. Elastic Search sd port 9200
+    + Bastion Server SSH port 22 từ IP cty
+- Tạo VPC Endpoint cho S3 service
+
+
+# Lab2 - Tạo VPC và setting network
+1. SỬ dụng AWS Console để tạo các resource đã thiết kế trong bài Lab1
+Thứ tự tạo resource VPC -> Subnets -> IGW -> NAT GW -> Route Tables -> VPC Endpoint -> Security Groups
+2. Tạo 1 instance trong Public subnet, gán bastion-sg, thử kết nối
+3. Tạo 1 instance trong Private subnet, gán app-sg, thử kết nối từ bastion
+4. Ping từ private instance ra Internet
+5. Thử gỡ route đi ra NAT từ private subnet, thử thapo tác với S3 từ private instance để check
+xem S3 endpoint có hoạt động không (Chú ý role cho EC2 instance)
